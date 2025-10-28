@@ -21,7 +21,7 @@
     </nav>
   </header>
 
-  <section class="home" id="home">
+  <section class="home show" id="home">
     <div class="home-img">
       <img src="main.jpg" alt="Jay Dane" />
     </div>
@@ -47,7 +47,7 @@
     </div>
   </section>
 
-  <section id="services">
+  <section id="services" class="show">
     <h2 class="section-title">Services</h2>
     <div class="section-content">
       <div class="card">
@@ -68,7 +68,7 @@
     </div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="show">
     <h2 class="section-title">Skills</h2>
     <div class="section-content skills-grid">
       <div>HTML</div>
@@ -84,7 +84,7 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="show">
     <h2 class="section-title">Projects</h2>
     <div class="section-content projects-grid">
 
@@ -121,7 +121,7 @@
     </div>
   </section>
 
-  <section id="education">
+  <section id="education" class="show">
     <h2 class="section-title">Education</h2>
     <p class="section-text">
       <strong>Bachelor of Science in Computer Science</strong><br />
@@ -130,7 +130,7 @@
     </p>
   </section>
 
- <section id="experience">
+ <section id="experience" class="show">
   <h2 class="section-title">Experience</h2>
   <ul class="section-text experience-list">
     <li><strong>Website and Database Assistant</strong> — Isabela State University (2025–Present)</li>
@@ -140,8 +140,7 @@
   </ul>
 </section>
 
-
-<section id="contact">
+<section id="contact" class="show">
   <h2 class="section-title">Contact</h2>
   <div class="section-text contact-info">
     📞 Telephone: <a href="tel:+639687603661">+63 968 760 3661</a><br />
@@ -183,7 +182,13 @@
       });
     };
 
-    // Fade-in animation
+    // Fade-in animation for sections as they come into view
+    window.addEventListener("load", () => {
+      document.querySelectorAll("section").forEach(sec => {
+        sec.classList.add("show");
+      });
+    });
+
     window.addEventListener("scroll", () => {
       document.querySelectorAll("section").forEach(sec => {
         const rect = sec.getBoundingClientRect();
